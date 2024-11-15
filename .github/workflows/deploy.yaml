@@ -6,10 +6,13 @@ on:
     branches: [main]
 
 jobs:
-  ci:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Install Requirement
+        run: |
+          pip install -r requirements.txt
       - name: Test
         run: |
           python manage.py test
